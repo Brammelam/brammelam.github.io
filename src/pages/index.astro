@@ -1,11 +1,179 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import { Image } from 'astro:assets';
+import bramPortrait from '../images/bram.jpg';
+const currentYear = new Date().getFullYear();
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const projects = [
+  { title: "BuddyBake", desc: "A social cooking platform built with Angular, Express, and MongoDB; connecting people through food.", url: "https://www.buddybake.com" },
+  { title: "Tiny Racer", desc: "Micro racing chaos built in Unity and ported for the web using Three.js.", url: "https://brammelam.github.io/tiny-racers-web" },
+  { title: "Bastet", desc: "A roguelite deckbuilder in a cat corporate environment.", url: "https://brammelam.github.io/bastet" },
+  { title: "Gun Farm", desc: "Fast, chaotic FPS prototype developed in Godot.", url: "https://brammelam.github.io/Oko" },
+  { title: "Monke Train", desc: "A weekend jam featuring a commuting monkey.", url: "https://brammelam.github.io/MonkeTrain" },
+  { title: "Stronk", desc: "Physics based weight-lifting experiment in Unity.", url: "https://brammelam.github.io/Stronk" },
+];
+
+const techStack = [
+  ["unity.svg", "Unity / C#"],
+  ["godotengine.svg", "Godot"],
+  ["dotnet.svg", ".NET Core"],
+  ["angular.svg", "Angular"],
+  ["nodedotjs.svg", "Node / Express"],
+  ["python.svg", "Python"],
+  ["mongodb.svg", "MongoDB"],
+  ["postgresql.svg", "PostgresQL"]
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bram van Oostrum — Developer & Creator</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Effects + AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.birds.min.js" defer></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+
+    <!-- Custom Script -->
+    <script src="/scripts/init-effects.js" defer></script>
+  </head>
+
+  <body>
+    <div id="vanta-bg"></div>
+    <div id="gradient-overlay"></div>
+
+    <!-- ==========================
+         HEADER / NAVIGATION
+    =========================== -->
+    <header id="top-bar" data-aos="fade-down">
+      <div class="nav-container">
+        <a href="/" id="logo" aria-label="Homepage">
+          <span class="bram">Bram</span><span class="dev gradient-text">.dev</span>
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+
+        <nav id="main-nav">
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#tech" class="nav-link">Tech Stack</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="https://github.com/brammelam" target="_blank" class="nav-link" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/bramvanoostrum" target="_blank" class="nav-link" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ==========================
+           HERO SECTION
+      =========================== -->
+      <section id="hero" data-aos="fade-up">
+        <h1>Hi, I’m <span class="gradient-text">Bram van Oostrum</span></h1>
+        <p>
+		I'm a developer who enjoys working at the intersection of technology, creativity, and design. My background is in
+		<strong>.NET / C#</strong> and <strong>Unity</strong>, and I've built everything from web apps to small multiplayer game prototypes.
+		</p><br>
+		<p>
+		These days I mostly work with <strong>.NET</strong>, <strong>TypeScript</strong>, <strong>Python</strong>, <strong>Express</strong>, and <strong>SQL</strong>,
+		often tying them together in full-stack projects. I like solving tricky problems with clean, maintainable code, while giving the end result a bit of personality.
+		</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="mailto:bramvanoostrum@gmail.com" class="btn secondary">Contact</a>
+        </div>
+      </section>
+
+      <!-- ==========================
+           PROJECTS SECTION
+      =========================== -->
+      <section id="projects" data-aos="fade-up">
+        <h2>Projects</h2>
+		<p>Apps, jams and experiments I have developed:</p>
+        <div class="project-grid">
+          {
+            projects.map((project, i) => (
+              <a
+				href={project.url}
+				class="card glass card-hover"
+				data-aos="fade-up"
+				data-aos-delay={i * 100}
+				target="_blank"
+				rel="noopener noreferrer"
+			  >
+
+                <h3>{project.title}</h3>
+                <p>{project.desc}</p>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- ==========================
+           TECH STACK SECTION
+      =========================== -->
+      <section id="tech" data-aos="fade-up">
+        <h2>Tech Stack</h2>
+        <p>Languages, frameworks, and tools I work with most often:</p>
+        <div class="tech-grid">
+          {
+            techStack.map(([icon, label], i) => (
+              <div class="tech-item" data-aos="zoom-in" data-aos-delay={50 + i * 50}>
+                <img src={`/icons/${icon}`} alt={label} loading="lazy" />
+                <span>{label}</span>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- ==========================
+           ABOUT SECTION
+      =========================== -->
+      <section id="about" data-aos="fade-up">
+        <div class="about-container">
+          <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+              I’m Bram, a 31-year-old developer from the Netherlands, now living in Oslo, Norway.
+              I enjoy building things that are practical, well designed, and pleasant to use.
+              My background in C# and Unity taught me structure and design, and I’ve carried that
+              into my work with TypeScript, Angular, and Node.
+            </p>
+            <p>
+              I like projects that have a clear purpose, clean code, and a bit of personality.
+              Outside of work I enjoy cooking, bouldering, and working on side projects
+              just for the joy of creating something new.
+            </p>
+          </div>
+
+          <div class="about-photo">
+            <Image
+              src={bramPortrait}
+              alt="Portrait of Bram van Oostrum"
+              width={180}
+              height={180}
+              class="portrait"
+              format="webp"
+              placeholder="blur"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==========================
+         FOOTER
+    =========================== -->
+    <footer>
+      <p>© {currentYear} Bram van Oostrum</p>
+    </footer>
+  </body>
+</html>
