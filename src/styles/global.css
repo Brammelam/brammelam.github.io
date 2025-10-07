@@ -325,7 +325,7 @@ main {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   place-items: center;
   max-width: 1000px;
@@ -334,13 +334,13 @@ main {
 
 @media (min-width: 734px) {
   .tech-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .tech-item {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -361,7 +361,7 @@ main {
 .tech-item img {
   width: 40px;
   height: 40px;
-  filter: drop-shadow(0 0 8px rgba(255, 0, 224, 0.5));
+  filter: brightness(0) saturate(100%) drop-shadow(0 0 8px rgba(255, 0, 224, 0.5));
 }
 
 .tech-item span {
@@ -433,12 +433,13 @@ main {
   object-fit: cover;
   border: 2px solid var(--color-border);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.5s ease;
+  filter: brightness(60%);
 }
 
 .about-photo img:hover {
-  transform: scale(1.03);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.12);
+  filter: brightness(70%);
 }
 
 /* ===================================================
