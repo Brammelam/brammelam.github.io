@@ -71,6 +71,31 @@ body {
   min-height: 100vh;
 }
 
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
 /* ===================================================
   BACKGROUND EFFECTS
 =================================================== */
@@ -256,20 +281,27 @@ main {
   padding: 6rem 2rem;
 }
 
-#hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
+
 
 #hero span {
   @extend .gradient-text;
 }
 
-#hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+
+/* ===================================================
+  EXPERIENCE SECTION
+=================================================== */
+#experience {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  text-align: left;
 }
+#experience p {
+  margin-bottom:1rem;
+  /* margin-top:1rem; */
+}
+
 
 /* ===================================================
   BUTTONS
@@ -331,11 +363,6 @@ main {
   text-align: center;
 }
 
-#tech h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
 #tech p {
   opacity: 0.85;
   margin-bottom: 3rem;
@@ -350,16 +377,6 @@ main {
   margin: 0 auto;
 }
 
-.tech-item:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  justify-self: center;
-}
-
-@media (min-width: 734px) {
-  .tech-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 .tech-item {
   width: 120px;
@@ -392,6 +409,19 @@ main {
   font-weight: 500;
 }
 
+@media (min-width: 734px) {
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 733px){
+  .tech-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  justify-self: center;
+}
+}
+
 /* ===================================================
   PROJECTS SECTION
 =================================================== */
@@ -402,15 +432,12 @@ main {
   text-align: center;
 }
 
-#projects h2 {
-  font-size: 2rem;
-}
-
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+  text-align: left;
 }
 
 .card {
@@ -422,11 +449,6 @@ main {
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.card h3 {
-  margin: 0 0 0.5rem;
-  color: var(--color-primary);
-}
-
 /* ===================================================
   ABOUT SECTION
 =================================================== */
@@ -436,11 +458,6 @@ main {
   padding: 0 2rem;
   text-align: center;
   opacity: 0.95;
-}
-
-#about p {
-  text-align: left;
-  margin-bottom: 1rem;
 }
 
 .about-photo {
@@ -474,6 +491,10 @@ footer {
   font-size: 0.9rem;
   opacity: 0.7;
   border-top: 1px solid var(--color-border);
+}
+
+footer p {
+  text-align: center;
 }
 
 /* ===================================================
