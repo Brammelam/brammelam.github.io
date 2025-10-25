@@ -6,9 +6,9 @@ const currentYear = new Date().getFullYear();
 
 const projects = [
   { title: "BuddyBake", desc: "A social cooking platform built with Angular, Express, and MongoDB; connecting people through food.", url: "https://www.buddybake.com" },
-  { title: "Tiny Racer", desc: "Micro racing chaos built in Unity and ported for the web using Three.js.", url: "https://brammelam.github.io/tiny-racers-web" },
+  { title: "Tiny Racer", desc: "Micro racing chaos built in Unity and ported for the web using WebGL", url: "https://brammelam.github.io/tiny-racers-web" },
   { title: "Bastet", desc: "A roguelite deckbuilder in a cat corporate environment.", url: "https://brammelam.github.io/bastet" },
-  { title: "Gun Farm", desc: "Fast, chaotic FPS prototype developed in Godot.", url: "https://brammelam.github.io/Oko" },
+  { title: "Gun Farm", desc: "Fast, chaotic FPS prototype developed in Godot.", url: "https://brammelam.github.io/https://brammelam.itch.io/gun-farm" },
   { title: "Monke Train", desc: "A weekend jam featuring a commuting monkey.", url: "https://brammelam.github.io/MonkeTrain" },
   { title: "Stronk", desc: "Physics based weight-lifting experiment in Unity.", url: "https://brammelam.github.io/Stronk" },
 ];
@@ -57,19 +57,20 @@ const techStack = [
         <a href="/" id="logo" aria-label="Homepage">
           <span class="bram">Bram</span><span class="dev gradient-text">.dev</span>
         </a>
+        <nav id="main-nav">
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#tech" class="nav-link">Tech stack</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="https://github.com/brammelam" target="_blank" class="nav-link" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/bramvanoostrum" target="_blank" class="nav-link" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
 
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
 
         
       </div>
     </header>
-    <nav id="main-nav">
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#tech" class="nav-link">Tech Stack</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="https://github.com/brammelam" target="_blank" class="nav-link" rel="noopener noreferrer">GitHub</a>
-          <a href="https://linkedin.com/in/bramvanoostrum" target="_blank" class="nav-link" rel="noopener noreferrer">LinkedIn</a>
-        </nav>
+    
 
     <main>
       <!-- ==========================
